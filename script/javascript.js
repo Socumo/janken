@@ -1,22 +1,38 @@
 console.log("Hello World")
+let playerScore = 0;
+let computerScore = 0;
+let totalScore= 0;
 const button = document.querySelector("button");
 function playRound(playerSelection, computerSelection) {
-  
-
-
-    if (playerSelection === computerSelection) {
+      if (playerSelection === computerSelection) {
 
         return (`A Tie! ${playerSelection} and ${computerSelection}`); 
 
     } else if (playerSelection === "scissors" && computerSelection === "paper"  || 
               playerSelection === "paper" && computerSelection === "rock"  || 
               playerSelection === "rock" && computerSelection === "scissors") {
+        
+            playerScore += 1; 
+            totalScore=`You win! ${playerSelection} beats 
+            ${computerSelection} and player score = ${playerScore} and computer score = ${computerScore}`; 
+           
+            if (playerScore == 5) {
+                alert("You won the game"); 
+            }
+            return(totalScore);
 
-        return (`You win! ${playerSelection} beats ${computerSelection}`); 
+     //   return (`You win! ${playerSelection} beats ${computerSelection} and your score ${playerScore} `); 
 
     } else  {
 
-        return (`You lose! ${computerSelection} beats ${playerSelection}`); 
+        computerScore += 1; 
+        totalScore=`You lose! ${playerSelection} beats 
+        ${computerSelection} and player score = ${playerScore} and computer score = ${computerScore}`; 
+        if (computerScore == 5) {
+            alert("You lost the game"); 
+        }
+        return(totalScore);
+        //return (`You lose! ${computerSelection} beats ${playerSelection} and your score ${computerScore} `); 
 
         }
     
